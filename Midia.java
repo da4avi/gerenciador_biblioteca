@@ -1,0 +1,40 @@
+public class Midia {
+    protected String titulo;
+    protected boolean disponivel;
+
+    public Midia(String titulo, boolean disponivel) {
+        this.titulo = titulo;
+        this.disponivel = disponivel;
+    }
+
+    public String getTitulo() {
+        return this.titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public boolean getDisponivel() {
+        return this.disponivel;
+    }
+
+    public void emprestar() throws Exception {
+        if (!this.disponivel) {
+            throw new Exception("Mídia não está disponível");
+        }
+        this.disponivel = false;
+    }
+
+    public void devolver() throws Exception {
+        if (this.disponivel) {
+            throw new Exception("Mídia já está disponível");
+        }
+        this.disponivel = true;
+    }
+
+    public String toString() {
+        return "Título: " + this.titulo 
+            + ". Disponível: " + (this.disponivel ? "Sim" : "Não");
+    }
+}
